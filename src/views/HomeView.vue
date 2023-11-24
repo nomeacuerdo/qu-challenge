@@ -35,7 +35,8 @@
     },
     methods: {
       fetchData(url?: string) {
-        const requestUrl = url || '/api/planets/';
+        const base = process.env.NODE_ENV === 'production' ? '//swapi.dev' : '';
+        const requestUrl = url || `${base}/api/planets/`;
         const vm = this;
 
         vm.error = null;
